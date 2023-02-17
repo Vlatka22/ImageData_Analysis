@@ -175,10 +175,10 @@ plot_ccf <- function(n = 3, p = 1, bg = 15, lag = 5){
   var2 <- maxI %>% replace(., is.na(.), 0)
   
   
-  mean1 <- sgolayfilt((rowMeans(var1[1:(n2-1), range2])),p=p, n = n)
+  mean1 <- sgolayfilt((rowMeans(var1[1:n2, range2])),p=p, n = n)
   mean2 <- sgolayfilt((rowMeans(var2[1:n2, range2])),p=p, n = n)
   
-  bg1<- sgolayfilt((rowMeans(var1[1:(n2-1), range2])),p=p, n = bg)
+  bg1<- sgolayfilt((rowMeans(var1[1:n2, range2])),p=p, n = bg)
   bg2<- sgolayfilt((rowMeans(var2[1:n2, range2])),p=p, n = bg)
   
   x2 = c(1:n2)
