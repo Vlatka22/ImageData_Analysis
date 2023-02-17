@@ -44,15 +44,16 @@ gene2 = 'cafA'
 
 #---------carA dates-----------
 g1_datum1 = '20211217' # paper: Figure 2
-g1_datum2 = '20220722' # paper: Figure S2
+g1_datum2   = '20220722' # paper: Figure S2
 
 #---------cafA dates-----------
 g2_datum1 = '20211027' # paper: Figure 3
-g2_datum2 = '20221107' # paper: Figure S3
+g2_datum2 = '20211215' # paper: Figure S3
+g2_datum3 = '20221107' 
 
 # Choose the experiment
-gene = gene1
-date = g1_datum1
+gene = gene2
+date = g2_datum2
 
 file_spots = paste0(folder, 'DATA/', date, gene, '.csv')
 file_nucl = paste0(folder, 'DATA/', date, gene, '_nucs.csv')
@@ -273,7 +274,7 @@ Timerange of interest
 if (date == 20211217) {n2 <-  210; n3 <- 120
 } else if (date == 20211027) {n2 <- 100; n3 <- 100
 } else if (date == 20220722) {n2 <- 120; n3 <- 120
-} else if (date == 20221107) {n2 <- 70; n3 <- 70
+} else if (date == 20221107 | date == 20211215) {n2 <- 70; n3 <- 70
 } 
 ```
 
@@ -349,6 +350,7 @@ if (date == 20211217) {y_int <- c(0, 350); y_flam <- c(100,300)
 } else if (date == 20211027) {y_int <- c(0, 130); y_flam <- c(150,250)
 } else if (date == 20220722) {y_int <- c(0, 150); y_flam <- c(100,400)
 } else if (date == 20221107) {y_int <- c(0, 620); y_flam <- c(230,335)
+} else if (date == 20211215) {y_int <- c(0, 620); y_flam <- c(220,300)
 }
 
 # blue: close to feeding front; purple: after the separation
@@ -400,10 +402,11 @@ colPal2 = colorRampPalette(pal);
 
 # --- Plot settings (cafA = datum1)
 # Legend
-if (date == 20211217)  {x = c(610, 630); yg = c(210, 500); yn = c(0, .9) 
-} else if (date == 20221107)  {x = c(610, 630); yg = c(350, 650); yn = c(2, 4.5) 
-} else if (date == 20211027)  {x = c(520, 540); yg = c(70, 150); yn = c(-.5, .9) 
-} else if (date == 20220722)  {x = c(600, 620); yg = c(75, 150); yn = c(0, .8) 
+if (date == 20211217) {x = c(610, 630); yg = c(210, 500); yn = c(0, .9) 
+} else if (date == 20221107) {x = c(610, 630); yg = c(350, 650); yn = c(2, 4.5) 
+} else if (date == 20211215) {x = c(600, 620); yg = c(400, 700); yn = c(1, 2.2)
+} else if (date == 20211027) {x = c(520, 540); yg = c(70, 150); yn = c(-.5, .9) 
+} else if (date == 20220722) {x = c(600, 620); yg = c(75, 150); yn = c(0, .8) 
 }
 #
 pos_l_gene = c(x[1], yg[1], x[2], yg[2]) 
@@ -508,6 +511,7 @@ win = 1; dwin = 2; noise = -3
 ylim = c(-5,5) 
 
 if (date == 20211217) {glim = c(-60,150); clim = c(-40, 12)
+} else if (date == 20211215) {glim = c(-110,250); clim = c(-50, 20)
 } else if (date == 20211027) {glim = c(-30,80); clim = c(-50, 20)
 } else if (date == 20220722) {
   win <- 2; dwin <- 4; noise = -5
